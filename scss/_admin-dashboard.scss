@@ -1,0 +1,101 @@
+
+.dashboard-title {
+    z-index: 1;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    width: 35vw;
+    margin: 15px auto 50px auto;
+    padding: 1.4rem;
+    background-color: #18181898;
+    backdrop-filter: blur(12px);
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  #noOrders {
+        margin-top: 6cm;
+        color: white;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 300;
+        font-size: 30px;
+        text-align: center;
+    }
+  
+  .order-details {
+    margin-bottom: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    .customer-name {
+        color: #6cc7db;
+        text-shadow: 0px 0px 3px rgba(28, 28, 28, 1);
+
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 30px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  
+    .order-item {
+      width: 60vw;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ffffff;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+  
+      p {
+        color: white;
+        margin-bottom: 5px;
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 10px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+  
+      .status-form {
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        margin-top: 10px;
+  
+        label {
+            color: white;
+          margin-bottom: 5px;
+          margin-bottom: 10px;
+        }
+  
+        select {
+          background-color: black;
+          color: white;
+          border-radius: 10px;
+          padding: 2.5px;
+          margin-bottom: 5px; 
+        }
+  
+        .status-submit {
+            font-size: medium;
+            width: 100px;
+            padding: 0.4rem 1rem;
+            margin: .5rem auto;
+            display: block;
+            background-color: #30798a;
+            color: #fff;
+            border: .5px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+            @include transition-ease;
+
+            &:hover {
+                background-color: #0e6477;
+              }
+        }
+      }
+    }
+  }
+  

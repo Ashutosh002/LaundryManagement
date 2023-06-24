@@ -1,0 +1,42 @@
+<%- include('../partials/header') %>
+<%- include('../partials/sidebar/navigation') %>
+
+<div class="laundry-status">
+<header class="laundry-status-header">
+    <h3>Laundry Status</h3>
+    <a class="btn" href="/logout" role="button">Log Out</a>
+</header>
+
+<main class="mainofLaundryStatus">
+    <!--Object.keys(requests).length checks if we receive an empty object, if yes it renders h1 else it renders all the requests -->
+    <% if(Object.keys(requests).length == 0) { %>
+        <p id="noRequests">No Laundry Request has been made yet.</p>
+        <% } else { %>
+            <% requests.forEach((request) => { %>   
+                <% const {topwear, bottomwear, woolenwear, other, quantity, pickup, dropoff, description, status} = request %>
+                <div class="request-item"> 
+                    <label for="items">Items</label>
+                    <h4 id="items"><%= topwear %>, <%= bottomwear %>, <%= woolenwear %>, <%= other %><h4>
+        
+                        <hr>
+        
+                    <label for="quantity">Quantity</label>
+                    <h3 id="quantity"><%= quantity %></h3>
+        
+                        <hr>
+        
+                    <label>Pickup & Drop off</label>
+                    <h3><%= pickup %> | <%= dropoff %></h3>
+        
+                        <hr>
+        
+                    <label for="status">Status</label>
+                    <h2 id="status"><%= status %> </h2>
+                </div>
+            <% }); %>
+            <% } %>
+   
+</main>
+</div>
+
+<%- include('../partials/footer') %>

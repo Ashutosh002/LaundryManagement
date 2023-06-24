@@ -1,0 +1,62 @@
+<%- include('../partials/header') %>
+<%- include('../partials/sidebar/navigation') %>
+
+
+<div class="profile-container">
+    <header class="profile-header">
+      <h3 class="profile-title">Profile</h3>
+      <a class="btn" href="/logout" role="button">Log Out</a>
+    </header>
+  
+    <main class="profile-main">
+      <form method="post" action="/updateprofile" class="profile-form">
+        <table class="profile-table">
+            <% const {id, fname, lname, username, phoneno, street, city, state, zipcode} = userDetails %>
+          <tr>
+            <td>First Name:</td>
+            <td><input type="text" name="fname" value="<%= fname %>"></td>
+          </tr>
+          <tr>
+            <td>Last Name:</td>
+            <td><input type="text" name="lname" value="<%= lname %>"></td>
+          </tr>
+          <tr>
+            <td>Email:</td>
+            <td><input type="email" name="username" value="<%= username %>"></td>
+          </tr>
+          <tr>
+            <td>Phone No:</td>
+            <td><input type="text" name="phoneno" value="<%= phoneno %>"></td>
+          </tr>
+          <tr>
+            <td>Street:</td>
+            <td><input type="text" name="street" value="<%= street %>"></td>
+          </tr>
+          <tr>
+            <td>City:</td>
+            <td><input type="text" name="city" value="<%= city %>"></td>
+          </tr>
+          <tr>
+            <td>State:</td>
+            <td><input type="text" name="state" value="<%= state %>"></td>
+          </tr>
+          <tr>
+            <td>Zipcode:</td>
+            <td><input type="text" name="zipcode" value="<%= zipcode %>"></td>
+          </tr>
+        </table>
+
+        <div class="note">
+            <p >Note: Changing the email will update your login username, use the updated username when logging in next time.</p>
+        </div>
+
+        <div class="btn-container">
+            <button name="id" value="<%= id %>"  type="submit" class="btn-update">Update</button>
+        </div>
+
+      </form>
+    </main>
+  </div>
+  
+  
+<%- include('../partials/footer') %>

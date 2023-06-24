@@ -1,0 +1,114 @@
+.profile-container {
+  position: relative;
+  min-height: 620px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-header {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.3rem 2rem;
+  width: 45vw;
+
+  h3 {
+    margin: 0;
+    text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.705);
+  }
+
+  .btn {
+    font-size: medium;
+    width: 100px;
+    display: block;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background-color: #30798a;
+    color: #fff;
+    border: 0.5px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #0e6477;
+    }
+  }
+}
+
+.profile-main {
+  margin-top: 6rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  .profile-table {
+    width: 45vw;
+    color: white;
+    font-size: 24px;
+
+    tr {
+      td:first-child {
+        text-align: left;
+        padding: 0.7rem;
+        text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.705);
+      }
+
+      td:last-child {
+        padding-right: 0;
+
+        input {
+          color: #5acbe4;
+          background-color: transparent;
+          border: none;
+          border-bottom: 1px solid white;
+          font-size: 24px;
+          outline: none;
+          width: 100%;
+          padding: .4rem 0;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .note {
+    margin-top: 3rem;
+    margin-bottom: 2.5rem;
+    width: 100%;
+    max-width: 45vw;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 15px;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.568);
+  }
+
+  .btn-container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 3.5rem;
+  }
+
+  .btn-update {
+    background-color: #30798a;
+    color: #fff;
+    border: 0.5px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-size: medium;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #0e6477;
+    }
+  }
+}

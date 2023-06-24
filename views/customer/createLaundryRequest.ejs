@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+<%- include('../partials/sidebar/navigation') %>
+
+<div class="create-laundry-request-container">
+  <header id="createLaundry">
+    <h3>Create New Laundry Request</h3>
+    <a class="btn" href="/logout" role="button">Log Out</a>
+  </header>
+
+  <main class="new-request">
+    <form action="/createlaundryrequest" method="POST">
+      <input type="text" name="topwear" placeholder="Top Wear">
+      <input type="text" name="bottomwear" placeholder="Bottom Wear">
+      <input type="text" name="woolenwear" placeholder="Woolen Wear">
+      <input type="text" name="other" placeholder="Other">
+      <input type="number" name="quantity" placeholder="Quantity">
+      <input type="date" style="color-scheme: dark;
+      " name="pickup" placeholder="PickUp Date">
+      <input type="date" style="color-scheme: dark;
+      " name="dropoff" placeholder="Dropoff Date"> 
+      <input type="text" name="description" placeholder="Description (if any)">
+      <button class="btn" type="submit">Submit</button>
+    </form>
+  </main>
+</div>
+
+<%- include('../partials/footer') %>

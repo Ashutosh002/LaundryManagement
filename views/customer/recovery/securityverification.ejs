@@ -1,0 +1,25 @@
+<%- include('../../partials/header') %>
+
+<div class="security-password-form">
+    <% const {q, a, id} = userdata %>
+    <h1>Answer the security question and provide new password to proceed</h1>
+  
+    <form onsubmit="return passwordResetValidation()" action="/resetpassword" method="post" class="security-form">
+
+      <label for="securityquestion"><%= q %></label>
+      <input type="text" name="verificationanswer" id="verification-answer" required>
+
+      <br>
+
+      <label for="newpassword">New Password</label>
+      <input type="text" name="newpassword" id="new-password" required>
+      <small style="visibility: hidden; color: red;">Password must have at least 6 characters.</small>
+      
+      <button name="userAnswerAndID" value="<%= JSON.stringify({ a, id }) %>" type="submit" id="update-button">Update</button>
+      <!-- Value attr can't take object so we have to stringify it. -->
+
+    </form>
+  </div>
+
+  <!-- Below script is linked to get access to passwordResetValidation() function -->
+  <script src="/js/register-validation.js" type="text/javascript"></script>

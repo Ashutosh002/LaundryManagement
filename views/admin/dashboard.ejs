@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="icon" style="color: #fff;" type="image/x-icon" href="/icon.png">
+</head>
+<body>
+<div class="dashboard-title"><h1>ADMIN | ALL ORDERS</h1></div>
+
+<% if(orders.length === 0) { %>
+    <h2 id="noOrders">No Laundry Request has been made yet.</h2>
+    <% } else { %>
+        <div class="customer-orders">
+        <% orders.forEach(detail => { %>
+                <div class="order-details">
+                    <h2 class="customer-name"><%= detail.customerName %></h2>
+                    <% detail.order.forEach(orderDetail => { %>
+                    <div class="order-item">
+                        <% let {id, topwear, bottomwear, woolenwear, other, quantity, pickup, dropoff, description, status} = orderDetail %>
+                        <p>Items: <%= topwear %>, <%= bottomwear %>, <%= woolenwear %>, <%= other %></p>
+                        <p>Quantity: <%= quantity %></p>
+                        <p>Pickup: <%= pickup %></p>
+                        <p>Dropoff: <%= dropoff %></p>
+                        <p>Description: <%= description %></p>
+                        <p>Status: <%= status %></p>
+            
+                        <form class="status-form" action="/admin/updatestatus" method="post">
+                            <label for="updatestatus">Update Status</label>
+                            <select id="updatestatus" name="status">
+                                <option value="" disabled selected>--Select--</option>
+                                <option value="Accepted">Accepted</option>
+                                <option value="Rejected">Rejected</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Out for Delivery">Out for Delivery</option>
+                                <option value="Delivered">Delivered</option>
+                            </select>
+                            <button class="status-submit" name="ids" type="submit" value="<%= JSON.stringify({ userID: detail.id, orderID: id }) %>">Submit</button>
+                        </form>            
+                    </div>
+                    <% }); %>
+                </div>
+        <% });  %>
+    </div>
+    <%  } %>
+    
+
+    <script src="../../misc.js"></script>
+</body>
+</html>

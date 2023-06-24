@@ -1,0 +1,72 @@
+@import 'config';
+@import 'navigation';
+@import 'login';
+@import 'footer';
+@import 'createLaundryRequest';
+@import 'prices';
+@import 'laundryStatus';
+@import 'register';
+@import 'profile';
+@import 'requestSubmitted';
+@import 'admin-dashboard';
+@import 'reset-password';
+@import 'security-verification';
+@import 'admin-password';
+
+html,
+body
+ {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(to right bottom, #56afc4, #4e8199, #415669, #2c303a, #0e0e0e);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.failedlogin {
+  padding: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #56afc4;
+
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  @include transition-ease;
+
+  h3 {
+    margin-bottom: 5px;
+    color: white;
+  }
+
+  hr{
+    opacity: .7;
+    width: 43%;
+  }
+
+  #links {
+    font-size: 20px;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: 1s;
+    color: #56afc4;
+    text-align: center;
+    display: inline-block;
+    margin: 30px;
+
+    &:hover {
+      text-decoration-color: #00c9f7;
+    }
+  }
+}
+
+p, h1, h2, h3, h4, h5, h6, ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}

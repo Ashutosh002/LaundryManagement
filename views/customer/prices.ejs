@@ -1,0 +1,38 @@
+<%- include('../partials/header') %>
+<%- include('../partials/sidebar/navigation') %>
+
+<div class="pricing-container">
+  <header class="pricing-header">
+    <h3>Pricing</h3>
+    <a class="btn btn-light btn-lg" href="/logout" role="button">Log Out</a>
+  </header>
+
+  <% const {topwear, bottomwear, woolenwear, other} = foundPricing %>
+
+  <main class="pricing-main">
+    <table>
+      <tr>
+        <th>Item</th>
+        <th>Price</th>
+      </tr>
+      <tr>
+        <td>Top Wear</td>
+        <td>₹<%= topwear %></td>
+      </tr>
+      <tr>
+        <td>Bottom Wear</td>
+        <td>₹<%= bottomwear %></td>
+      </tr>
+      <tr>
+        <td>Woolen Wear</td>
+        <td>₹<%= woolenwear %></td>
+      </tr>
+      <tr>
+        <td>Others</td>
+        <td>₹<%= other %></td>
+      </tr>
+    </table>
+  </main>
+</div>
+
+<%- include('../partials/footer') %>
