@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require("body-parser");
 const User = require("./db/models/User")
+const Price = require("./db/models/Price")
 
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(express.json());
 
-//! Why is there a function here?
 
 function dashboard(res){
 
@@ -22,13 +22,20 @@ function dashboard(res){
         && 
         orders.push({
           id: user.id,
-          customerName: user.fullname,
+          fname: user.fname,
+          lname: user.lname,
           order: user.order
         })
       });
 
-      return res.render("admin/dashboard", {orders: orders})
-      
+      Price.findById(process.env.PRICING_DOCUMENT_ID, (err, foundPricing) => {
+          if (err) {
+            console.log(err);
+          } else {
+            res.render("admin/dashboard", { orders, foundPricing})
+          }
+        });
+
     } else {
       return res.send("No Order Found")
     }
@@ -54,7 +61,7 @@ function dashboard(res){
 //# POST - UPDATE STATUS
     router.post("/updatestatus", (req, res) => {
 
-      const {ids, status} = req.body;
+      const {ids, requestStatus, paymentStatus} = req.body;
       const {userID, orderID} = JSON.parse(ids);
 
 
@@ -65,7 +72,8 @@ function dashboard(res){
       },
       {
         $set: {
-          'order.$.status': status 
+          'order.$.status': requestStatus,
+          'order.$.paymentstatus': paymentStatus
         }
       },
       { new: true }, 
@@ -79,5 +87,46 @@ function dashboard(res){
       }
     );
   });
-  
+
+//# POST - UPDATE PRICING
+router.post("/updatepricing", (req, res) => {
+
+  User.find({"order": {$ne: null}}, function(err, foundUsers){
+    if(err){
+      console.log(err);
+    } else if(foundUsers){
+
+      let orders = []
+      foundUsers.forEach(user => {
+        user.order.length !== 0 
+        && 
+        orders.push({
+          id: user.id,
+          fname: user.fname,
+          lname: user.lname,
+          order: user.order
+        })
+      });
+
+      Price.findById(process.env.PRICING_DOCUMENT_ID, (err, foundPricing) => {
+          if (err) {
+            console.log(err);
+          } else {
+
+            foundPricing.twc = req.body.twc;
+            foundPricing.bwc = req.body.bwc;
+            foundPricing.wwc = req.body.wwc;
+            foundPricing.oc = req.body.oc;
+
+            foundPricing.save();
+
+            res.render("admin/dashboard", { orders, foundPricing})
+          }
+        });
+    } else {
+      return res.send("No Order Found")
+    }
+  })
+});
+
 module.exports = router;

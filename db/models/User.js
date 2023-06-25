@@ -20,12 +20,17 @@ const customerSchema = new mongoose.Schema({
       bottomwear: String,
       woolenwear: String,
       other: String,
-      quantity: Number,
+      twq: Number,
+      bwq: Number,
+      wwq: Number,
+      oq: Number,
       pickup: String,
       dropoff: String,
       description: String,
       status: String,
-      cost: Number
+      cost: Number,
+      paymentstatus: String,
+      method: String
     }]
   }, {timestamp: true});
 

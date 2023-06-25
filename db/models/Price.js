@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 const pricesSchema = new mongoose.Schema({
-    topwear: Number,
-    bottomwear: Number,
-    woolenwear: Number,
-    other: Number,
+    twc: Number,
+    bwc: Number,
+    wwc: Number,
+    oc: Number,
   });
 
 

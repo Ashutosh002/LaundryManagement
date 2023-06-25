@@ -1,0 +1,76 @@
+<%- include('../partials/header') %>
+
+<div class="order-details-container">
+
+  <header id="order-details-header">
+    <h3>Laundry Request Details</h3>
+  </header>
+  <main class="order-flex">
+
+    <div class="order-details-flex">
+      <% const {topwear, bottomwear, woolenwear, other, twq, bwq, wwq, oq,
+      pickup, dropoff, description} = orderData %> 
+      <% const {twc, bwc, wwc, oc} = priceData %> 
+      
+      <% const TotalItem = +twq + +bwq + +wwq + +oq %>
+      <% const TotalCost = twq*twc + bwq*bwc + wwq*wwc + oq*oc %>
+
+      <table border="1" cellpadding="5">
+        <tr>
+          <th>Items</th>
+          <th>Quantity</th>
+          <th>Cost</th>
+          <th>Items</th>
+          <th>Quantity</th>
+          <th>Cost</th>
+        </tr>
+        <tr class="tableData">
+          <td>Top Wear</td>
+          <td><%= twq %></td>
+          <td>₹<%= twq*twc %></td>
+          <td>Bottom Wear</td>
+          <td><%= bwq %></td>
+          <td>₹<%= bwq*bwc %></td>
+        </tr>
+        <tr class="tableData">
+          <td>Woolen Wear</td>
+          <td><%= wwq %></td>
+          <td>₹<%= wwq*wwc %></td>
+          <td>Others</td>
+          <td><%= oq %></td>
+          <td>₹<%= oq*oc %></td>
+        </tr>
+        <tr>
+          <th colspan="6"> Total Item: <%= TotalItem %> | Total Cost: ₹<%= TotalCost %></th>
+        </tr>
+        <tr class="pickupdropoff">
+          <td>Pickup</td>
+          <td colspan="2"><%= pickup %></td>
+          <td>Delivery</td>
+          <td colspan="2"><%= dropoff %></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="payment-flex">
+      <form action="/proceedtopayment" method="post">
+        <div>
+          <label for="paymentMethod">Payment Method</label>
+          <select id="paymentMethod" name="paymentMethod" required>
+            <option value="" disabled selected>--Select--</option>
+            <option value="Online">ONLINE</option>
+            <option value="COD">COD</option>
+          </select>
+        </div>
+
+        <button name="orderData" type="submit" value="<%= JSON.stringify({
+            orderData,
+            TotalCost
+        }) %>" class="proceed-button"> Proceed </button>
+      </form>
+    </div>
+
+  </main>
+</div>
+
+<%- include('../partials/footer') %>

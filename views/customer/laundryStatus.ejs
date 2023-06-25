@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<%- include('../partials/sidebar/navigation') %>
+<%- include('../partials/navbar/navigation') %>
 
 <div class="laundry-status">
 <header class="laundry-status-header">
@@ -13,7 +13,10 @@
         <p id="noRequests">No Laundry Request has been made yet.</p>
         <% } else { %>
             <% requests.forEach((request) => { %>   
-                <% const {topwear, bottomwear, woolenwear, other, quantity, pickup, dropoff, description, status} = request %>
+                <% const {topwear, bottomwear, woolenwear, other, twq, bwq, wwq, oq, pickup, dropoff, description, status, paymentstatus, cost, method} = request %>
+
+                <% const totalQuantity = twq + bwq + wwq + oq %>
+
                 <div class="request-item"> 
                     <label for="items">Items</label>
                     <h4 id="items"><%= topwear %>, <%= bottomwear %>, <%= woolenwear %>, <%= other %><h4>
@@ -21,7 +24,7 @@
                         <hr>
         
                     <label for="quantity">Quantity</label>
-                    <h3 id="quantity"><%= quantity %></h3>
+                    <h3 id="quantity"><%= totalQuantity %></h3>
         
                         <hr>
         
@@ -29,9 +32,26 @@
                     <h3><%= pickup %> | <%= dropoff %></h3>
         
                         <hr>
-        
-                    <label for="status">Status</label>
-                    <h2 id="status"><%= status %> </h2>
+
+
+                    <label for="price">Cost</label>
+                    <h3 id="price"> ₹<%= cost %> </h3>
+
+                        <hr>
+
+                    <label for="paymentStatus">Payment Status</label>
+                    <h3 id="paymentStatus"> <%= paymentstatus %> </h3>
+                        
+                        <hr>
+                            
+                    <label for="status">Order Status</label>
+                    <h3 id="status"><%= status %> </h3>
+
+                        <hr>
+                            
+                    <label for="paymentmethod">Payment Method</label>
+                    <h3 id="paymentmethod"><%= method %> </h3>
+                       
                 </div>
             <% }); %>
             <% } %>

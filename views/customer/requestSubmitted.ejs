@@ -1,12 +1,17 @@
 <%- include('../partials/header') %>
 <div class="request-submitted-container">
     <div class="thank-you-section">
-        <h1 class="thank-you-title">Thank you for the laundry request.</h1>
-        <p class="thank-you-message">Laundry will be picked up from your doorstep at the given time with payment once the request has been accepted.</p>
+        <h1 class="thank-you-title">Thank you for the <span class="laundry">laundry</span>  request.</h1>
+
+        <h2> Payment Method: <%= method %> | ₹<%= totalcost %> </h2>
+
+        <p class="thank-you-message">Laundry will be picked up from your doorstep on <span class="dates"><%= pickup %></span> and will be delievered on  <span class="dates"><%= dropoff %></span>  once the request has been confirmed.</p>
+        
+        <div class="button-section">
+            <a href="/createlaundryrequest" class="btn">New Request</a>
+            <a href="/laundrystatus" class="btn">Check Status</a>
+        </div>
     </div>
 
-    <div class="button-section">
-        <a href="/createlaundryrequest" class="create-request-btn">New Request</a>
-        <a href="/laundrystatus" class="check-status-btn">Check Status</a>
-    </div>
+    
 </div>

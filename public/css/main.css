@@ -383,7 +383,7 @@
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: 500;
   color: white;
-  font-size: 15px;
+  font-size: 20px;
 }
 .request-item h3 {
   margin-top: 8px;
@@ -682,60 +682,60 @@
 .request-submitted-container .thank-you-section {
   text-align: center;
   margin: 2rem;
+  height: 40%;
+  width: 45rem;
 }
 .request-submitted-container .thank-you-section h1 {
+  font-size: 35px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: white;
   text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.705);
   margin-bottom: 15px;
 }
 .request-submitted-container .thank-you-section p {
+  font-size: 17px;
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.705);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: white;
 }
+.request-submitted-container .thank-you-section h2 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 25px;
+  color: rgb(0, 238, 255);
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.705);
+  margin-bottom: 3rem;
+}
+.request-submitted-container .thank-you-section .laundry {
+  font-size: 40px;
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.863);
+  font-family: "Satisfy", cursive;
+  color: rgb(0, 238, 255);
+}
+.request-submitted-container .thank-you-section .dates {
+  color: rgb(0, 238, 255);
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.808);
+}
 .request-submitted-container .button-section {
-  margin-top: 1rem;
+  margin-top: 5rem;
 }
-.request-submitted-container .button-section .create-request-btn {
+.request-submitted-container .button-section .btn {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 1.1rem;
+  margin: auto 2rem auto 2rem;
+  font-size: 1rem;
   height: -moz-fit-content;
   height: fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  padding: 1rem;
-  margin: 0.5rem auto;
+  padding: 0.4rem;
   text-decoration: none;
-  display: block;
-  background-color: #45bad7;
+  background-color: #2c7d91;
   color: #fff;
   border: 0.5px solid white;
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.request-submitted-container .button-section .create-request-btn:hover {
-  background-color: #3696ae;
-}
-.request-submitted-container .button-section .check-status-btn {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 1.1rem;
-  height: -moz-fit-content;
-  height: fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  text-decoration: none;
-  padding: 1rem;
-  margin: 0.5rem auto;
-  display: block;
-  background-color: #45bad7;
-  color: #fff;
-  border: 0.5px solid white;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.request-submitted-container .button-section .check-status-btn:hover {
+.request-submitted-container .button-section .btn:hover {
   background-color: #3696ae;
 }
 
@@ -744,8 +744,10 @@
   text-align: center;
   position: sticky;
   top: 0;
-  width: 35vw;
-  margin: 15px auto 50px auto;
+  left: 70px;
+  width: 91%;
+  margin-top: 30px;
+  margin-bottom: 30px;
   padding: 1.4rem;
   background-color: rgba(24, 24, 24, 0.5960784314);
   -webkit-backdrop-filter: blur(12px);
@@ -756,8 +758,8 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#noOrders {
-  margin-top: 6cm;
+#no_Order {
+  margin-top: 5cm;
   color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 300;
@@ -765,30 +767,41 @@
   text-align: center;
 }
 
-.order-details {
+#flex-container {
+  display: flex;
+  flex-direction: row;
+  position: sticky;
+  top: 15px;
+}
+#flex-container .allOrderDetails {
   margin-bottom: 35px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-basis: 60%;
 }
-.order-details .customer-name {
-  color: #6cc7db;
+#flex-container .order-details .customer-name {
+  color: #ffffff;
   text-shadow: 0px 0px 3px rgb(28, 28, 28);
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 30px;
   margin-bottom: 10px;
   text-align: center;
 }
-.order-details .order-item {
-  width: 60vw;
+#flex-container .order-details .order-item {
+  width: 50vw;
   margin-bottom: 10px;
-  padding: 10px;
+  padding: 2rem;
+  background-color: rgba(24, 24, 24, 0.3647058824);
   border: 1px solid #ffffff;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
 }
-.order-details .order-item p {
+#flex-container .order-details .order-item hr {
+  width: 200px;
+}
+#flex-container .order-details .order-item p {
   color: white;
   margin-bottom: 5px;
   text-align: center;
@@ -796,29 +809,32 @@
   margin-bottom: 10px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-.order-details .order-item .status-form {
+#flex-container .order-details .order-item .status-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 10px;
 }
-.order-details .order-item .status-form label {
-  color: white;
+#flex-container .order-details .order-item .status-form label {
+  font-size: 18px;
+  color: #45e3f8;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin-bottom: 5px;
-  margin-bottom: 10px;
 }
-.order-details .order-item .status-form select {
-  background-color: black;
-  color: white;
+#flex-container .order-details .order-item .status-form select {
+  width: -moz-max-content;
+  width: max-content;
+  background-color: rgb(8, 110, 126);
+  color: rgb(255, 255, 255);
   border-radius: 10px;
   padding: 2.5px;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
-.order-details .order-item .status-form .status-submit {
+#flex-container .order-details .order-item .status-form .status-submit {
   font-size: medium;
   width: 100px;
   padding: 0.4rem 1rem;
-  margin: 0.5rem auto;
+  margin: 0.8rem auto;
   display: block;
   background-color: #30798a;
   color: #fff;
@@ -827,7 +843,72 @@
   cursor: pointer;
   transition: all 0.4s ease-in-out;
 }
-.order-details .order-item .status-form .status-submit:hover {
+#flex-container .order-details .order-item .status-form .status-submit:hover {
+  background-color: #0e6477;
+}
+#flex-container .order-details-each {
+  color: #00ffff;
+}
+#flex-container .updatePricing {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 40%;
+  background-color: transparent;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+#flex-container .updatePricing .sticky-wrapper {
+  position: sticky;
+  top: 110px;
+  z-index: 1;
+}
+#flex-container .updatePricing h2 {
+  color: #ffffff;
+  text-shadow: 0px 0px 3px rgb(28, 28, 28);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+#flex-container .updatePricing table {
+  background-color: rgba(24, 24, 24, 0.3647058824);
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  width: 31vw;
+  color: white;
+}
+#flex-container .updatePricing table th, #flex-container .updatePricing table td {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 23px;
+  padding: 10px;
+  text-align: center;
+}
+#flex-container .updatePricing table input[type=text] {
+  color: white;
+  text-align: center;
+  margin-top: 5px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: rgba(42, 114, 114, 0.2196078431);
+  border: 1.5px solid #ccc;
+  border-radius: 5px;
+}
+#flex-container .updatePricing button[type=submit] {
+  font-size: medium;
+  width: 100%;
+  padding: 0.4rem 1rem;
+  margin: 0.8rem auto;
+  display: block;
+  background-color: #30798a;
+  color: #fff;
+  border: 0.5px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+#flex-container .updatePricing button[type=submit]:hover {
   background-color: #0e6477;
 }
 
@@ -972,6 +1053,178 @@
 
 .admin-login-form button[type=submit]:hover {
   background-color: #f44336;
+}
+
+.order-details-container {
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 5px;
+  color: white;
+}
+.order-details-container #order-details-header {
+  padding: 5px 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  width: 30%;
+  background-color: rgba(24, 24, 24, 0.631372549);
+  border: 1px solid #ccc;
+}
+.order-details-container #order-details-header h3 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #ffffff;
+  font-size: 30px;
+}
+.order-details-container .order-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 2rem;
+}
+.order-details-container .order-flex .order-details-flex {
+  height: 75vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-basis: 70%;
+  background-color: rgba(24, 24, 24, 0.2862745098);
+}
+.order-details-container .order-flex .order-details-flex table {
+  height: inherit;
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+}
+.order-details-container .order-flex .order-details-flex table .tableData > td:nth-child(1), .order-details-container .order-flex .order-details-flex table .tableData > td:nth-child(4) {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+  background-color: rgba(24, 24, 24, 0.4941176471);
+}
+.order-details-container .order-flex .order-details-flex table .pickupdropoff > td:nth-child(odd) {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+  background-color: rgba(24, 24, 24, 0.4941176471);
+}
+.order-details-container .order-flex .order-details-flex table th,
+.order-details-container .order-flex .order-details-flex table td {
+  font-size: 1.3rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  padding: 10px;
+  text-align: center;
+}
+.order-details-container .order-flex .order-details-flex table th {
+  color: #37f5f5;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  text-align: center;
+  background-color: rgba(24, 24, 24, 0.631372549);
+  font-weight: bold;
+}
+.order-details-container .order-flex .payment-flex {
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 35%;
+  justify-content: center;
+  align-items: center;
+}
+.order-details-container .order-flex .payment-flex form {
+  width: 300px;
+  text-align: center;
+}
+.order-details-container .order-flex .payment-flex form div {
+  margin-bottom: 10px;
+}
+.order-details-container .order-flex .payment-flex form label {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 30px;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+.order-details-container .order-flex .payment-flex form select {
+  font-size: 20px;
+  background-color: #35404E;
+  color: white;
+  width: 45%;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.order-details-container .order-flex .payment-flex form .proceed-button {
+  font-size: medium;
+  width: 100px;
+  padding: 0.4rem 1rem;
+  margin: 0.8rem auto;
+  display: block;
+  background-color: #30798a;
+  color: #fff;
+  border: 0.5px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+.order-details-container .order-flex .payment-flex form .proceed-button:hover {
+  background-color: #0e6477;
+}
+
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #000;
+  color: #fff;
+}
+.payment-form .card-details-header {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 30px;
+  margin-bottom: 2rem;
+  letter-spacing: 4px;
+}
+.payment-form .total-cost {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 2.5rem;
+  font-size: 35px;
+  color: #fff;
+}
+.payment-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.payment-form form .card-number {
+  margin-bottom: 2rem;
+  padding: 15px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  background-color: #fff;
+  height: 35px;
+  width: 25rem;
+  text-align: center;
+}
+.payment-form form .pay-button {
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  background-color: #cc3000;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.payment-form form .pay-button:hover {
+  background-color: #a70b00;
 }
 
 html,

@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+
+<div class="payment-form">
+    <h2 class="card-details-header">Complete Your Payment</h2>
+    <h1 class="total-cost">Total: ₹<%= TotalCost %></h1>
+    <form action="paymentinitiated" method="post">
+        <input placeholder="Card Details Here" class="card-number" name="CardNo" type="text" required>
+        <button class="pay-button" name="OrderData" value="<%= JSON.stringify({orderData, TotalCost}) %>" type="submit">Pay</button>
+    </form>
+</div>
+
+<%- include('../partials/footer') %>

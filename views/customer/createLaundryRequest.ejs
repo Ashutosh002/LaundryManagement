@@ -1,5 +1,5 @@
-<%- include('../partials/header') %>
-<%- include('../partials/sidebar/navigation') %>
+<%- include('../partials/header') %> <%-
+include('../partials/navbar/navigation') %>
 
 <div class="create-laundry-request-container">
   <header id="createLaundry">
@@ -9,17 +9,22 @@
 
   <main class="new-request">
     <form action="/createlaundryrequest" method="POST">
-      <input type="text" name="topwear" placeholder="Top Wear">
-      <input type="text" name="bottomwear" placeholder="Bottom Wear">
-      <input type="text" name="woolenwear" placeholder="Woolen Wear">
-      <input type="text" name="other" placeholder="Other">
-      <input type="number" name="quantity" placeholder="Quantity">
-      <input type="date" style="color-scheme: dark;
-      " name="pickup" placeholder="PickUp Date">
-      <input type="date" style="color-scheme: dark;
-      " name="dropoff" placeholder="Dropoff Date"> 
-      <input type="text" name="description" placeholder="Description (if any)">
-      <button class="btn" type="submit">Submit</button>
+      <div class="create-reqest-grid">
+        <input type="text" name="topwear" placeholder="Top Wear" required />
+        <input type="text" name="bottomwear"placeholder="Bottom Wear" required />
+        <input type="text" name="woolenwear" placeholder="Woolen Wear" required />
+        <input type="text" name="other" placeholder="Other" required />
+        <input type="number" name="twq" placeholder="Topwear Quantity" required />
+        <input type="number" name="bwq" placeholder="Bottomwear Quantity" required />
+        <input type="number" name="wwq" placeholder="Woolenwear Quantity" required />
+        <input type="number" name="oq" placeholder="Others Quantity" required />
+        <input type="date" style="color-scheme: dark" name="pickup" placeholder="PickUp Date" required />
+        <input type="date" style="color-scheme: dark" name="dropoff" placeholder="Dropoff Date" required />
+        <input type="text" name="description" placeholder="Description (if any)" />
+
+        <button class="btn" type="submit">Submit</button>
+        
+      </div>
     </form>
   </main>
 </div>

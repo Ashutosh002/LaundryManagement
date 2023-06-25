@@ -10,43 +10,99 @@
 <body>
 <div class="dashboard-title"><h1>ADMIN | ALL ORDERS</h1></div>
 
-<% if(orders.length === 0) { %>
-    <h2 id="noOrders">No Laundry Request has been made yet.</h2>
-    <% } else { %>
-        <div class="customer-orders">
-        <% orders.forEach(detail => { %>
-                <div class="order-details">
-                    <h2 class="customer-name"><%= detail.customerName %></h2>
-                    <% detail.order.forEach(orderDetail => { %>
-                    <div class="order-item">
-                        <% let {id, topwear, bottomwear, woolenwear, other, quantity, pickup, dropoff, description, status} = orderDetail %>
-                        <p>Items: <%= topwear %>, <%= bottomwear %>, <%= woolenwear %>, <%= other %></p>
-                        <p>Quantity: <%= quantity %></p>
-                        <p>Pickup: <%= pickup %></p>
-                        <p>Dropoff: <%= dropoff %></p>
-                        <p>Description: <%= description %></p>
-                        <p>Status: <%= status %></p>
-            
-                        <form class="status-form" action="/admin/updatestatus" method="post">
-                            <label for="updatestatus">Update Status</label>
-                            <select id="updatestatus" name="status">
-                                <option value="" disabled selected>--Select--</option>
-                                <option value="Accepted">Accepted</option>
-                                <option value="Rejected">Rejected</option>
-                                <option value="In Progress">In Progress</option>
-                                <option value="Out for Delivery">Out for Delivery</option>
-                                <option value="Delivered">Delivered</option>
-                            </select>
-                            <button class="status-submit" name="ids" type="submit" value="<%= JSON.stringify({ userID: detail.id, orderID: id }) %>">Submit</button>
-                        </form>            
-                    </div>
-                    <% }); %>
-                </div>
-        <% });  %>
-    </div>
-    <%  } %>
+<div id="flex-container">
     
+    <div class="allOrderDetails">
+<% if(orders.length === 0) { %>
+    <h2 id="no_Order">No Laundry Request has been made yet.</h2>
+    <% } else { %>
+        <% orders.forEach(detail => { %>
+            <div class="order-details">
+                <h2 class="customer-name"><%= detail.fname %> <%= detail.lname %>'s Orders</h2>
+                <% detail.order.forEach(orderDetail => { %>
+                <div class="order-item">
+                    <% let {id, topwear, bottomwear, woolenwear, other, twq, bwq, wwq, oq, pickup, dropoff, description, cost, status, paymentstatus, method} = orderDetail %>
 
-    <script src="../../misc.js"></script>
+                    <% const totalQuantity = twq + bwq + wwq + oq %>
+
+
+                    <p><span class="order-details-each">Items: </span><%= topwear %>, <%= bottomwear %>, <%= woolenwear %>, <%= other %></p>
+                    <p><span class="order-details-each">Total Quantity: </span><%= totalQuantity %></p>
+                    <p><span class="order-details-each">Pick up: </span><%= pickup %></p>
+                    <p><span class="order-details-each">Drop off: </span><%= dropoff %></p>
+                    <p><span class="order-details-each">Description: </span> <%= description %></p>
+                    <p><span class="order-details-each">Total Cost: </span> ₹<%= cost %></p>
+                    <p><span class="order-details-each">Payment Method: </span> <%= method %></p>
+
+                            <hr>
+                    
+                    <p><span class="order-details-each">Laundry Status: </span> <%= status %></p>
+                    <p><span class="order-details-each">Payment Status: </span> <%= paymentstatus %></p>
+
+                            <hr>
+        
+                    <form class="status-form" action="/admin/updatestatus" method="post">
+                        <label class="update-status-label" for="updatestatus">Update Laundry Status</label>
+                        <select id="updatestatus" name="requestStatus">
+                            <option value="" disabled selected>--Select--</option>
+                            <option value="Confirmed">Confirmed</option>
+                            <option value="Rejected">Rejected</option>
+                            <option value="Out for Pickup">Out for Pickup</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Out for Delivery">Out for Delivery</option>
+                            <option value="Delivered">Delivered</option>
+                        </select>
+
+                        <label class="update-status-label" for="paymentstatus">Update Payment Status</label>
+                        <select id="updatePaymentStatus" name="paymentStatus">
+                            <option value="" disabled selected>--Select--</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Initiated">Initiated</option>
+                            <option value="Failed">Failed</option>
+                            <option value="Paid">Paid</option>
+                            <option value="Returned">Returned</option>
+                        </select>
+
+                        <button class="status-submit" name="ids" type="submit" value="<%= JSON.stringify({ userID: detail.id, orderID: id }) %>">Update</button>
+                    </form>            
+                </div>
+                <% }); %>
+            </div>
+        <% });  %>
+    <%  } %>
+</div>
+
+    <div class="updatePricing">
+        <div class="sticky-wrapper">
+        <form action="/admin/updatepricing" method="post">
+            <h2>Update Pricing</h2>
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td>Top Wear</td>
+                    <td><input name="twc" type="text" value="<%= foundPricing.twc %>" required></td>
+                </tr>
+                <tr>
+                    <td>Bottom Wear</td>
+                    <td><input name="bwc" type="text" value="<%= foundPricing.bwc %>" required></td>
+                </tr>
+                <tr>
+                    <td>Woolen Wear</td>
+                    <td><input name="wwc" type="text" value="<%= foundPricing.wwc %>" required></td>
+                </tr>
+                <tr>
+                    <td>Others</td>
+                    <td><input name="oc" type="text" value="<%= foundPricing.oc %>" required></td>
+                </tr>
+            </table>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+    </div>
+</div>
+    
 </body>
 </html>
